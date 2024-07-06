@@ -1,0 +1,47 @@
+# Node.js dependencies
+/node_modules
+
+# Logs
+*.log
+
+# Build results
+/build
+/dist
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE specific files (example: Visual Studio Code)
+.vscode/
+
+# Dependency directories
+/client/node_modules
+/server/node_modules
+
+# Client-side build outputs
+/client/build
+/client/.next
+
+# Server-side build outputs
+/server/build
+
+# MongoDB database files
+/data/db
+
+# Package-lock.json files
+package-lock.json
+/client/package-lock.json
+/server/package-lock.json
+
+# Yarn lock file
+yarn.lock
+
+# Editor configuration files
+.editorconfig
+
+# Operating System files
+npm-debug.log*
