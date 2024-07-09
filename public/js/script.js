@@ -12,7 +12,7 @@ if (navigator.geolocation) {
     },
     {
       enableHighAccuracy: true,
-      maximumAge: 2,
+      maximumAge: 10000,
       timeout: 5000,
     }
   );
@@ -28,12 +28,16 @@ const markers = {};
 
 socket.on("receive-location", (location) => {
   const { id, latitude, longitude } = location;
-  map.setView([latitude, longitude]);
+  const offset = (id.charCodeAt(0) % 5) * 0.0005;
+  const adjustedLongitude = longitude + offset;
+  const adjustedLatitude = latitude + offset;
+  
+  map.setView([adjustedLatitude, adjustedLongitude]);
 
   if (markers[id]) {
-    markers[id].setLatLng([latitude, longitude]);
+    markers[id].setLatLng([adjustedLatitude, adjustedLongitude]);
   } else {
-    markers[id] = new L.marker([latitude, longitude]).addTo(map);
+    markers[id] = new L.marker([adjustedLatitude, adjustedLongitude]).addTo(map);
   }
 });
 
