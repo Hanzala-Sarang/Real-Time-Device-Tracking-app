@@ -33,7 +33,7 @@ socket.on("receive-location", (location) => {
   if (markers[id]) {
     markers[id].setLatLng([latitude, longitude]);
   } else {
-    markers[id] = L.marker([latitude, longitude]).addTo(map);
+    markers[id] = new L.marker([latitude, longitude]).addTo(map);
   }
 });
 
